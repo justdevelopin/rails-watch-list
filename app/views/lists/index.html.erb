@@ -1,0 +1,68 @@
+<%# BANNER %>
+
+<div class="jumbotron main-container container-fluid text-light p-5">
+  <div class="hero">
+    <h1 class="display-5 mb-3">Save any kind of movies!</h1>
+    <hr class="my-4 mb-5">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quis aperiam fugit, delectus ratione adipisci quia dolores at, obcaecati aut vero corporis placeat culpa iure nihil vitae aliquam accusamus eligendi!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Browse all movies (for example)</a>
+    </p>
+  </div>
+</div>
+
+<%# LISTS 101010101010101010101010101010101010101010101%>
+
+<h2 class="text-center mb-3">My Lists</h2>
+
+<div class="d-flex justify-content-center">
+  <% @lists.each do |list| %>
+    <div class="card-category m-3">
+      <%= link_to list.name , list_path(list) ,class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
+
+<%# Create list %>
+
+<div class="d-flex justify-content-center">
+  <form method="post", action="/lists" class="add-list container border p-3 m-5 bg-light">
+    <fieldset class="p-3 m-5">
+      <legend>Add a new List</legend>
+      <div class="mb-3">
+        <label for="list" class="form-label">List name</label>
+        <input type="text" name="list[name]" id="list" class="form-control" placeholder="Classic...">
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </fieldset>
+  </form>
+</div>
+
+<%#
+<h3>Create a new list</h3>
+  <%= simple_form_for @list do |f| %>
+  <%# <%= f.input :name, placeholder: 'Drama' %>
+  <%# <%= f.submit class: 'btn btn-flat' %>
+  <%# <% end %>
+
+<%# WAAAAAY simpler with simple form but the key difference is taking the value %>
+<%# Which is by doing this => name="list[name]" %>
+
+<%# Movies 101010101010101010101010101010101010101010101%>
+
+
+<div class="movies container mb-5">
+  <h2 class="text-center mb-3">Movies</h2>
+  <div class="row justify-content-center">
+    <% @movies.each do |movie| %>
+      <div class="card m-2 bg-light" style="width: 18rem;">
+        <img class="card-img-top" src="<%= movie.poster_url %>" alt="<%= movie.title %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= movie.title %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Add this to a list</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

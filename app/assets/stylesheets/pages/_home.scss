@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.jumbotron {
+  height: 80vh;
+  background-image: linear-gradient(to bottom, rgb(12, 1, 1), rgba(14, 2, 2, 0.382)), asset-url("cinema.webp");
+  background-size: cover;
+  margin-bottom: 5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.695);
+
+
+}
+
+.hero {
+  padding-top: 8rem;
+}
